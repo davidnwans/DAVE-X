@@ -1,13 +1,29 @@
 {
-  "name": "DAVE-X Bot",
-  "description": "DAVE-X WhatsApp Bot - only SESSION_ID needed",
-  "repository": "https://github.com/Davex-254/DAVE-X",
-  "logo": "https://raw.githubusercontent.com/Davex-254/DAVE-X/main/logo.png",
-  "keywords": ["whatsapp", "bot", "dave-x"],
-  "env": {
-    "SESSION_ID": {
-      "description": "Your WhatsApp session ID (get from pair command)",
-      "required": true
+  "name": "DAVE-X",
+  "description": "Dave X, simple Whatsapp bot by Dave!",
+  "logo": "https://h.uguu.se/GiYWpWoC.jpg",
+  "keywords": [],
+  "repository": "https://github.com/gifteddevsmd/DAVE-MD2",
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+"env": {
+  "SESSION_ID": {
+    "description": "Must begin with 'DAVE-AI:~'.",
+    "value": "",
+    "required": true
+  }
+},  
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
     }
   },
   "buildpacks": [
@@ -15,13 +31,13 @@
       "url": "heroku/nodejs"
     },
     {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
     }
-  ],
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "eco"
-    }
-  }
+  ]
 }
